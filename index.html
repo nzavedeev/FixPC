@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ремонт компьютеров и ноутбуков — выезд по городу и в СЦ (Сочи-Адлер)</title>
+    <meta name="description" content="Диагностика 0₽ при ремонте. 15 лет опыта. Гарантия до 3 мес. Работаю без посредников.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #111111;
+            line-height: 1.5;
+            font-weight: 400;
+            font-size: 16px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Типографика */
+        h1, h2, h3, h4 {
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        p, li, .text-regular {
+            font-weight: 400;
+            color: #333333;
+        }
+
+        /* Шапка */
+        .header {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            background-color: #000000;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .header-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.6;
+            animation: subtleMove 30s ease-in-out infinite alternate;
+        }
+
+        @keyframes subtleMove {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05) translate(1%, 1%); }
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            opacity: 0.4;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .header-badge {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #aaaaaa;
+            margin-bottom: 1rem;
+            border-left: 3px solid #ffffff;
+            padding-left: 1rem;
+        }
+
+        .header-title {
+            font-size: 4rem;
+            font-weight: 500;
+            line-height: 1.1;
+            max-width: 900px;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-subtitle {
+            font-size: 1.25rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+
+        .header-button {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .header-button:hover {
+            background-color: #eeeeee;
+        }
+
+        /* Навигация */
+        .nav {
+            position: sticky;
+            top: 0;
+            background-color: #ffffff;
+            border-bottom: 1px solid #eaeaea;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: #333333;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #000000;
+        }
+
+        /* Секции */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-light {
+            background-color: #ffffff;
+        }
+
+        .section-gray {
+            background-color: #f8f8f8;
+        }
+
+        /* Сетки */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        /* Карточки */
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #eaeaea;
+            padding: 2rem;
+        }
+
+        .card-gray {
+            background-color: #f8f8f8;
+            border: 1px solid #eaeaea;
+            padding: 2rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .card-text {
+            color: #555555;
+            font-size: 0.9375rem;
+        }
+
+        /* Список услуг */
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem 1.5rem;
+            list-style: none;
+        }
+
+        .service-item {
+            color: #333333;
+            font-size: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-item::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #999999;
+        }
+
+        /* Цены */
+        .price-value {
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: #000000;
+            margin: 1rem 0;
+        }
+
+        .price-note {
+            color: #777777;
+            font-size: 0.875rem;
+            border-top: 1px solid #eaeaea;
+            padding-top: 1rem;
+        }
+
+        /* Показатели */
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            background-color: #ffffff;
+            border: 1px solid #eaeaea;
+            padding: 3rem;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 500;
+            color: #000000;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: #555555;
+            font-size: 0.9375rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.5rem;
+        }
+
+        /* Форма */
+        .form {
+            max-width: 700px;
+            margin: 0 auto;
+            border: 1px solid #eaeaea;
+            padding: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #eaeaea;
+            background-color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: #000000;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #999999;
+        }
+
+        .captcha-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #eaeaea;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .captcha-code {
+            font-family: 'Inter', monospace;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #000000;
+            letter-spacing: 0.3rem;
+        }
+
+        .captcha-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid #eaeaea;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+
+        .captcha-refresh {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            color: #333333;
+            padding: 0.5rem;
+        }
+
+        .captcha-refresh:hover {
+            color: #000000;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 1.25rem;
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: #222222;
+        }
+
+        .success-message {
+            background-color: #f0f0f0;
+            color: #000000;
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            border: 1px solid #eaeaea;
+            display: none;
+        }
+
+        /* Контакты */
+        .contact-info {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .contact-phone {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #000000;
+            text-decoration: none;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 0.25rem;
+        }
+
+        .contact-email {
+            color: #555555;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        /* Футер */
+        .footer {
+            background-color: #000000;
+            color: #999999;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid #222222;
+        }
+
+        .footer-text {
+            color: #777777;
+            font-size: 0.875rem;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 1024px) {
+            .grid-4, .grid-3, .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .header-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            .grid-4, .grid-3, .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .header-title {
+                font-size: 2.25rem;
+            }
+            .stats {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 2rem;
+            }
+            .stat-item {
+                text-align: center;
+            }
+            .service-list {
+                grid-template-columns: 1fr;
+            }
+            .form {
+                padding: 1.5rem;
+            }
+            .captcha-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-image"></div>
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <div class="header-badge">выезд от 120 минут</div>
+            <h1 class="header-title">Ремонт компьютеров и ноутбуков на дому и в СЦ (Сочи-Адлер)</h1>
+            <div class="header-subtitle">Бесплатная диагностика при ремонте. 15 лет опыта. Гарантия до 12 месяцев.</div>
+            <a href="#contact" class="header-button">Связаться</a>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#about" class="nav-link">О себе</a>
+            <a href="#services" class="nav-link">Услуги</a>
+            <a href="#prices" class="nav-link">Цены</a>
+            <a href="#stats" class="nav-link">Опыт</a>
+            <a href="#contact" class="nav-link">Контакты</a>
+        </div>
+    </nav>
+
+    <section id="about" class="section section-light">
+        <div class="container">
+            <h2>Работаю без посредников</h2>
+            <div class="grid-4">
+                <div class="card">
+                    <div class="card-title">Гарантия до 12 мес</div>
+                    <div class="card-text">На все работы и комплектующие</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Оплата после</div>
+                    <div class="card-text">Только когда проверите и согласитесь</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">15 лет опыта</div>
+                    <div class="card-text">Мастер, а не ученик</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Выезд 120 мин</div>
+                    <div class="card-text">По городу без ожидания</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section section-gray">
+        <div class="container">
+            <h2>Что делаю</h2>
+            <div class="card-gray">
+                <ul class="service-list">
+                    <li class="service-item">Установка / переустановка Windows с сохранением данных</li>
+                    <li class="service-item">Чистка от пыли + замена термопасты</li>
+                    <li class="service-item">Удаление вирусов, рекламы, блокировок</li>
+                    <li class="service-item">Замена HDD → SSD (ускорение в 5 раз)</li>
+                    <li class="service-item">Восстановление данных с HDD</li>
+                    <li class="service-item">Настройка Wi-Fi, роутеров, принтеров</li>
+                    <li class="service-item">Сборка / апгрейд ПК под бюджет</li>
+                    <li class="service-item">Замена экранов, клавиатур, батарей</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="prices" class="section section-light">
+        <div class="container">
+            <h2>Цены фиксированные</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-title">Диагностика + выезд</div>
+                    <div class="price-value">0 ₽</div>
+                    <div class="price-note">При ремонте</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Переустановка Windows</div>
+                    <div class="price-value">4 500 ₽</div>
+                    <div class="price-note">С сохранением данных</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Чистка + термопаста</div>
+                    <div class="price-value">2 200 ₽</div>
+                    <div class="price-note">Для ноутбука</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Удаление вирусов</div>
+                    <div class="price-value">1 300 ₽</div>
+                    <div class="price-note">Сложные случаи — договорная</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Замена HDD → SSD</div>
+                    <div class="price-value">1 900 ₽</div>
+                    <div class="price-note">+ стоимость диска</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Сборка / апгрейд</div>
+                    <div class="price-value">от 2 000 ₽</div>
+                    <div class="price-note">Помогу с выбором</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats" class="section section-gray">
+        <div class="container">
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">лет опыта</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3-12</div>
+                    <div class="stat-label">мес гарантии</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">клиентов</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">120</div>
+                    <div class="stat-label">минут выезд</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section section-light">
+        <div class="container">
+            <h2>Связаться</h2>
+            
+            <div class="success-message" id="successMessage">Спасибо. Я свяжусь с вами в ближайшее время.</div>
+
+            <form class="form" id="feedbackForm" onsubmit="return handleFormSubmit(event)">
+                <div class="form-group">
+                    <input type="text" class="form-input" id="name" name="name" placeholder="Имя *" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" class="form-input" id="phone" name="phone" placeholder="Телефон *" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-input" id="email" name="email" placeholder="Email *" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-textarea" id="message" name="message" rows="3" placeholder="Опишите проблему"></textarea>
+                </div>
+
+                <div class="captcha-container">
+                    <span class="captcha-code" id="captchaDisplay"></span>
+                    <input type="text" class="captcha-input" id="captchaInput" placeholder="Код" required>
+                    <button type="button" class="captcha-refresh" onclick="generateCaptcha()">↻</button>
+                </div>
+                <input type="hidden" id="captchaCode" name="captchaCode">
+
+                <button type="submit" class="submit-btn">Отправить</button>
+            </form>
+
+            <div class="contact-info">
+                <div>
+                    <a href="tel:+79673218262" class="contact-phone">8 (967) 321-82-62</a>
+                </div>
+                <div style="margin-top: 0.75rem;">
+                    <a href="mailto:nzavedeev@ya.ru" class="contact-email">nzavedeev@ya.ru</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2025 Ремонт компьютеров и ноутбуков</p>
+            <p class="footer-text" style="margin-top: 0.5rem;">Оплата после проверки и вашего согласия</p>
+        </div>
+    </footer>
+
+    <script>
+        function generateCaptcha() {
+            const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            let captcha = '';
+            for (let i = 0; i < 5; i++) {
+                captcha += chars[Math.floor(Math.random() * chars.length)];
+            }
+            document.getElementById('captchaDisplay').textContent = captcha;
+            document.getElementById('captchaCode').value = captcha;
+            document.getElementById('captchaInput').value = '';
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const userCaptcha = document.getElementById('captchaInput').value.trim();
+            const correctCaptcha = document.getElementById('captchaCode').value;
+
+            if (!name || !phone || !email) {
+                alert('Заполните имя, телефон и email');
+                return false;
+            }
+
+            if (userCaptcha !== correctCaptcha) {
+                alert('Неверный код');
+                generateCaptcha();
+                return false;
+            }
+
+            // Отправка в Formspree
+            fetch('https://formspree.io/f/nzavedeev@ya.ru', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    name, 
+                    phone, 
+                    email, 
+                    message: document.getElementById('message').value 
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('feedbackForm').reset();
+                    generateCaptcha();
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 4000);
+                } else {
+                    alert('Ошибка, попробуйте позже');
+                }
+            })
+            .catch(() => alert('Ошибка сети'));
+
+            return false;
+        }
+
+        window.onload = function() {
+            generateCaptcha();
+
+            const phoneInput = document.getElementById('phone');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+                    e.target.value = !x[2] ? x[1] : '+7 (' + x[2] + ') ' + x[3] + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
+                });
+            }
+
+            document.querySelectorAll('.nav-link').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        };
+    </script>
+
+    <!-- Код Яндекс.Метрики (раскомментировать и вставить номер) -->
+    <!--
+    <script>
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        ym(95699252, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+    </script>
+    -->
+</body>
+</html>
