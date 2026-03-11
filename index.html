@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ремонт компьютеров и ноутбуков — выезд по городу и в СЦ (Сочи-Адлер)</title>
-    <meta name="description" content="Диагностика 0₽ при ремонте. 15 лет опыта. Гарантия до 3 мес. Работаю без посредников.">
+    <title>Ремонт компьютеров и ноутбуков на дому и в СЦ (Сочи-Адлер)</title>
+    <meta name="description" content="Диагностика 0₽ при ремонте. 15 лет опыта. Гарантия до 12 мес. Работаю без посредников.">
     <style>
         * {
             margin: 0;
@@ -475,7 +475,7 @@
         <div class="header-image"></div>
         <div class="header-overlay"></div>
         <div class="header-content">
-            <div class="header-badge">выезд от 120 минут</div>
+            <div class="header-badge">выезд 120 минут</div>
             <h1 class="header-title">Ремонт компьютеров и ноутбуков на дому и в СЦ (Сочи-Адлер)</h1>
             <div class="header-subtitle">Бесплатная диагностика при ремонте. 15 лет опыта. Гарантия до 12 месяцев.</div>
             <a href="#contact" class="header-button">Связаться</a>
@@ -497,7 +497,7 @@
             <h2>Работаю без посредников</h2>
             <div class="grid-4">
                 <div class="card">
-                    <div class="card-title">Гарантия до 12 мес</div>
+                    <div class="card-title">Гарантия до 3 мес</div>
                     <div class="card-text">На все работы и комплектующие</div>
                 </div>
                 <div class="card">
@@ -550,7 +550,7 @@
                 </div>
                 <div class="card">
                     <div class="card-title">Чистка + термопаста</div>
-                    <div class="price-value">2 200 ₽</div>
+                    <div class="price-value">2 500 ₽</div>
                     <div class="price-note">Для ноутбука</div>
                 </div>
                 <div class="card">
@@ -580,7 +580,7 @@
                     <div class="stat-label">лет опыта</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">3-12</div>
+                    <div class="stat-number">3</div>
                     <div class="stat-label">мес гарантии</div>
                 </div>
                 <div class="stat-item">
@@ -601,7 +601,8 @@
             
             <div class="success-message" id="successMessage">Спасибо. Я свяжусь с вами в ближайшее время.</div>
 
-            <form class="form" id="feedbackForm" onsubmit="return handleFormSubmit(event)">
+            <!-- ОБНОВЛЕННАЯ ФОРМА С ВАШИМ ЭНДПОИНТОМ -->
+            <form class="form" id="feedbackForm" action="https://formspree.io/f/mzdjenlr" method="POST">
                 <div class="form-group">
                     <input type="text" class="form-input" id="name" name="name" placeholder="Имя *" required>
                 </div>
@@ -621,6 +622,8 @@
                     <button type="button" class="captcha-refresh" onclick="generateCaptcha()">↻</button>
                 </div>
                 <input type="hidden" id="captchaCode" name="captchaCode">
+                <!-- Добавляем скрытое поле для капчи, чтобы она отправлялась на сервер -->
+                <input type="hidden" name="captcha" id="hiddenCaptcha">
 
                 <button type="submit" class="submit-btn">Отправить</button>
             </form>
@@ -655,53 +658,38 @@
             document.getElementById('captchaInput').value = '';
         }
 
-        function handleFormSubmit(event) {
-            event.preventDefault();
-
+        // Перехватываем отправку формы для проверки капчи
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            const userCaptcha = document.getElementById('captchaInput').value.trim();
+            const correctCaptcha = document.getElementById('captchaCode').value;
             const name = document.getElementById('name').value.trim();
             const phone = document.getElementById('phone').value.trim();
             const email = document.getElementById('email').value.trim();
-            const userCaptcha = document.getElementById('captchaInput').value.trim();
-            const correctCaptcha = document.getElementById('captchaCode').value;
 
             if (!name || !phone || !email) {
+                e.preventDefault();
                 alert('Заполните имя, телефон и email');
                 return false;
             }
 
             if (userCaptcha !== correctCaptcha) {
+                e.preventDefault();
                 alert('Неверный код');
                 generateCaptcha();
                 return false;
             }
 
-            // Отправка в Formspree
-            fetch('https://formspree.io/f/mzdjenlr', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    name, 
-                    phone, 
-                    email, 
-                    message: document.getElementById('message').value 
-                })
-            })
-            .then(response => {
-                if (response.ok) {
-                    document.getElementById('successMessage').style.display = 'block';
-                    document.getElementById('feedbackForm').reset();
-                    generateCaptcha();
-                    setTimeout(() => {
-                        document.getElementById('successMessage').style.display = 'none';
-                    }, 4000);
-                } else {
-                    alert('Ошибка, попробуйте позже');
-                }
-            })
-            .catch(() => alert('Ошибка сети'));
-
-            return false;
-        }
+            // Записываем капчу в скрытое поле для отправки
+            document.getElementById('hiddenCaptcha').value = correctCaptcha;
+            
+            // Показываем сообщение об успехе (formspree сделает перезагрузку, но мы покажем)
+            document.getElementById('successMessage').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 4000);
+            
+            return true; // Разрешаем отправку
+        });
 
         window.onload = function() {
             generateCaptcha();
@@ -738,5 +726,4 @@
     </script>
     -->
 </body>
-
 </html>
